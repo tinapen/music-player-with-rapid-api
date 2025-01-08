@@ -1,0 +1,312 @@
+
+Rapid API
+SPOTIFY TRACKS
+1. All Too Well (Taylor's Version)
+Track ID: 3nsfB1vus2qaloUdcBZvDu
+Code Snippet: 
+const url = 'https://spotify23.p.rapidapi.com/tracks/?ids=3nsfB1vus2qaloUdcBZvDu';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709',
+		'x-rapidapi-host': 'spotify23.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
+
+
+2. Fortnight
+Track ID: 2OzhQlSqBEmt7hmkYxfT6m
+Code Snippet:
+const url = 'https://spotify23.p.rapidapi.com/tracks/?ids=2OzhQlSqBEmt7hmkYxfT6m';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709',
+		'x-rapidapi-host': 'spotify23.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
+3. The Tortured Poets Department 
+Track ID: 3NMrVbIVWT3fPXBj0rNDKG
+Code Snippet: const url = 'https://spotify23.p.rapidapi.com/tracks/?ids=3NMrVbIVWT3fPXBj0rNDKG';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709',
+		'x-rapidapi-host': 'spotify23.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
+
+
+GENUIUS LYRICS
+1. All Too Well (Taylor's Version)
+ID: 7076626
+Code Snippet: 
+const url = 'https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=7076626&text_format=plain';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709',
+		'x-rapidapi-host': 'genius-song-lyrics1.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
+2. Fortnight
+ID: 10024009
+Code Snippet:
+const url = 'https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=10024009&text_format=plain';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709',
+		'x-rapidapi-host': 'genius-song-lyrics1.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
+3. The Tortured Poets Department
+ID: 10024578
+Code Snippet:
+const url = 'https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=10024578&text_format=plain';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709',
+		'x-rapidapi-host': 'genius-song-lyrics1.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
+
+// Fetching Other Albums from API
+async function getAlbums() {
+  const url =
+    "https://spotify23.p.rapidapi.com/search/?q=Taylor%20Swift&type=albums&offset=0&limit=20&numberOfTopResults=5";
+  const options = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709",
+      "x-rapidapi-host": "spotify23.p.rapidapi.com",
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    console.log(result);
+    displayAlbums(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+let songDuration = 10 * 60; // 10 minutes in seconds
+let intervalId;
+let isPlaying = false;
+let currentTime = 0;
+
+// Format time in mm:ss
+function formatTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
+}
+
+// Update seekbar and time display
+function updateSeekBar() {
+  currentTime++;
+  const progressPercentage = (currentTime / songDuration) * 100;
+  seekBar.value = progressPercentage;
+
+  // Update track background gradient
+  seekBar.style.background = `linear-gradient(to right, #632964 ${progressPercentage}%, #ffffff ${progressPercentage}%)`;
+
+  // Update start time display
+  startTimeDisplay.textContent = formatTime(currentTime);
+
+  if (currentTime >= songDuration) {
+    clearInterval(intervalId);
+    playPauseButton.classList.remove("fa-pause");
+    playPauseButton.classList.add("fa-play");
+
+    isPlaying = false;
+    currentTime = 0; // Reset for replay
+    startTimeDisplay.textContent = formatTime(currentTime); // Reset time display
+    seekBar.style.background = `linear-gradient(to right, #632964 100%, #ffffff 0%)`;
+  }
+}
+
+// Initialize end time display
+endTimeDisplay.textContent = formatTime(songDuration);
+
+playPauseButton.addEventListener("click", () => {
+  if (isPlaying) {
+    clearInterval(intervalId);
+    playPauseButton.classList.remove("fa-pause");
+    playPauseButton.classList.add("fa-play");
+  } else {
+    intervalId = setInterval(updateSeekBar, 1000);
+    playPauseButton.classList.remove("fa-play");
+    playPauseButton.classList.add("fa-pause");
+  }
+
+});
+
+
+
+function displayAlbums(result) {
+  const albums = result.albums.items;
+  albums.reverse();
+  albums.forEach((album) => {
+    console.log(album);
+
+    const contentContainer = document.createElement("div");
+    contentContainer.className = "albums-container";
+
+    const albumsImg = document.createElement("img");
+    albumsImg.className = "other-albums-img";
+    albumsImg.src = album.data.coverArt.sources[0].url;
+    albumsImg.alt = album.data.name;
+
+    const albumsName = document.createElement("h3");
+    albumsName.className = "albums-name";
+    albumsName.textContent = album.data.name;
+
+    const albumsYear = document.createElement("p");
+    albumsYear.className = "albums-year";
+    albumsYear.textContent = album.data.date.year;
+
+    contentContainer.appendChild(albumsImg);
+    contentContainer.appendChild(albumsName);
+    contentContainer.appendChild(albumsYear);
+
+    albumsContent.appendChild(contentContainer);
+  });
+}
+
+result.albums.items.album.data.name
+
+async function getArtists() {
+  const url = `https://spotify23.p.rapidapi.com/search/?q=All%20Too%20Well%20(Taylor's%20Version)&type=artists&offset=0&limit=20&numberOfTopResults=5`;
+  const options = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709",
+      "x-rapidapi-host": "spotify23.p.rapidapi.com",
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    console.log(result);
+    displayArtists(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
+// Fetching Related Artists
+function displayArtists(result) {
+  const artists = result.artists.items;
+  artists.forEach((artist) => {
+    console.log(artist);
+
+    const contentContainer = document.createElement("div");
+    contentContainer.className = "artists-container";
+
+    const artistsImg = document.createElement("img");
+    artistsImg.className = "related-artists-img";
+    artistsImg.src = artist.data.visuals.avatarImage.sources[0].url;
+    artistsImg.alt = artist.data.profile.name;
+
+    const artistsName = document.createElement("h3");
+    artistsName.classsName = "artists-name";
+    artistsName.textContent = artist.data.profile.name;
+
+    contentContainer.appendChild(artistsImg);
+    contentContainer.appendChild(artistsName);
+
+    artistsContent.appendChild(contentContainer);
+  });
+}
+
+result.artists.items.data.profile.name
+
+tabBtns.forEach((tab, index) => {
+  tab.addEventListener("click", (e) => {
+    tabBtns.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+    tab.classList.add("active");
+
+    allContent.forEach((content) => {
+      content.classList.remove("active");
+    });
+    allContent[index].classList.add("active");
+    console.log(index);
+
+    if (index === 1) {
+      getAlbums();
+    } else if (index === 2) {
+      getArtists();
+    }
+
+    if (allContent[1].classList === "content-box active") {
+      albumsContent.style.display = "flex";
+    } else {
+      albumsContent.style.display = "none";
+    }
+  });
+});
+
+// albumsBtn.addEventListener("click", getAlbums);
+// artistsBtn.addEventListener("click", getArtists);

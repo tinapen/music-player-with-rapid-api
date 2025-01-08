@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Music Player</title>
+  </head>
+  <body>
+    <div id="hero" class="hero">
+      <!-- Section 1  -->
+      <div class="player-container">
+        <div id="album" class="album-container">
+          <div id="vinyl-box">
+            <img
+              src="https://pngimg.com/uploads/vinyl/vinyl_PNG53.png"
+              alt="vinyl"
+              id="vinyl"
+            />
+          </div>
+          <div id="artist-photo-box">
+            <img
+              src="https://lastfm.freetls.fastly.net/i/u/avatar170s/6ea6c716a593b0e68746e4afd0185cc6"
+              alt="artist"
+              id="artist"
+            />
+          </div>
+        </div>
+        <div class="title-artist-container">
+          <div id="title">All Too Well (Taylor's Version)</div>
+          <div id="artist-name">Taylor Swift</div>
+        </div>
+        <div class="seek-items">
+          <div class="duration">
+            <div id="start-time">00:00</div>
+            <div id="end-time">00:00</div>
+          </div>
+          <div class="seek-bar-container">
+            <!-- <input type="range" name="seek-bar" id="seek-bar" value="0" /> -->
+            <div id="seek-bar"></div>
+            <div id="seek-eclipse"></div>
+          </div>
+        </div>
+        <div class="player-btns">
+          <div id="previous">
+            <i class="fa-solid fa-backward-step" id="backward-icon"></i>
+          </div>
+          <div id="playpause-btn">
+            <i class="fa-solid fa-play" id="playpause-icon"></i>
+          </div>
+          <div id="next">
+            <i class="fa-solid fa-forward-step" id="forward-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div id="explore-container">
+        <div id="explore">Explore</div>
+        <div id="tab-container">
+          <div id="tabs">
+            <button class="tab-btns" data-type="lyrics_btn">Lyrics</button>
+            <button class="tab-btns" data-type="albums_btn">
+              Other Albums
+            </button>
+            <button class="tab-btns" data-type="artists_btn">
+              Related Artists
+            </button>
+          </div>
+        </div>
+        <div class="explore-content"></div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
