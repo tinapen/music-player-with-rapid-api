@@ -24,7 +24,7 @@ const fetchTrackData = async () => {
     "https://spotify23.p.rapidapi.com/tracks/?ids=3NMrVbIVWT3fPXBj0rNDKG",
   ];
   const headers = {
-    "x-rapidapi-key": "API_KEY",
+    "x-rapidapi-key": "31db11b2bdmsh20acd01b1a08536p1681b3jsna936906d109b",
     "x-rapidapi-host": "spotify23.p.rapidapi.com",
   };
 
