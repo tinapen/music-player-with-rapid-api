@@ -24,7 +24,7 @@ const fetchTrackData = async () => {
     "https://spotify23.p.rapidapi.com/tracks/?ids=3NMrVbIVWT3fPXBj0rNDKG",
   ];
   const headers = {
-    "x-rapidapi-key": "c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709",
+    "x-rapidapi-key": "31db11b2bdmsh20acd01b1a08536p1681b3jsna936906d109b",
     "x-rapidapi-host": "spotify23.p.rapidapi.com",
   };
 
@@ -150,7 +150,7 @@ const fetchTabData = async (type) => {
       url: `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=7076626&text_format=plain`,
       method: "GET",
       headers: {
-        "x-rapidapi-key": "c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709",
+        "x-rapidapi-key": "31db11b2bdmsh20acd01b1a08536p1681b3jsna936906d109b",
         "x-rapidapi-host": "genius-song-lyrics1.p.rapidapi.com",
       },
     },
@@ -158,7 +158,7 @@ const fetchTabData = async (type) => {
       url: `https://spotify23.p.rapidapi.com/search/?q=Taylor%20Swift&type=albums&offset=0&limit=20&numberOfTopResults=5`,
       method: "GET",
       headers: {
-        "x-rapidapi-key": "c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709",
+        "x-rapidapi-key": "31db11b2bdmsh20acd01b1a08536p1681b3jsna936906d109b",
         "x-rapidapi-host": "spotify23.p.rapidapi.com",
       },
     },
@@ -166,7 +166,7 @@ const fetchTabData = async (type) => {
       url: `https://spotify23.p.rapidapi.com/search/?q=All%20Too%20Well%20(Taylor's%20Version)&type=artists&offset=0&limit=20&numberOfTopResults=5`,
       method: "GET",
       headers: {
-        "x-rapidapi-key": "c64c225683mshdc6d4f590fed5aep1a160ajsn571aa63b3709",
+        "x-rapidapi-key": "31db11b2bdmsh20acd01b1a08536p1681b3jsna936906d109b",
         "x-rapidapi-host": "spotify23.p.rapidapi.com",
       },
     },
